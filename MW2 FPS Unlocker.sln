@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PatternScanning", "PatternScanning\PatternScanning.vcxproj", "{0203B518-3C66-4F61-A66B-F7CC885BF658}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MW2 FPS Unlocker", "MW2 FPS Unlocker\MW2 FPS Unlocker.vcxproj", "{0203B518-3C66-4F61-A66B-F7CC885BF658}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
