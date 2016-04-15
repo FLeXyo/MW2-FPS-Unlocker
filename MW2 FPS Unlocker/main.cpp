@@ -1,18 +1,25 @@
 //Credits to Fleep for all the help :)
 #include <iostream>
 #include <windows.h>
+#include <process.h>
 #include "functions.h"
 
-char FpsOpCode[] = "\x7D";
+char FpsOpCode[] = "\x7D"; //125
 
-void InitiateHooks()
+
+void InitiateHooks(void *param)
 {
 	DWORD fpsAddy = GetAddy("iw4mp.exe");
 
 	fpsAddy += 0x5F8152C;
 
 	//iw4mp.exe+5F8152C
-	WriteToMemory(fpsAddy, FpsOpCode, 1);
+	while (true)
+	{
+		WriteToMemory(fpsAddy, FpsOpCode, 1);
+		Sleep(5000);
+	}
+	
 }
 
 BOOL WINAPI DllMain(
@@ -20,10 +27,12 @@ BOOL WINAPI DllMain(
 	DWORD fdwReason,
 	LPVOID lpReserved)
 {
+	
 	switch (fdwReason)
 	{
 	case DLL_PROCESS_ATTACH:
-		InitiateHooks();
+		HANDLE handle;
+		handle = (HANDLE)_beginthread(InitiateHooks, 0, 0);
 		break;
 	}
 	return true;
